@@ -5,9 +5,18 @@
     </div>
     {% endfor %}
 </div> {% endcomment %}
-
 <div class="row" id="images">
-    {% for column in test %}
+    {% if images %}
+    <h3 class="py-5">Наиболее похожий экспонат</h3>
+    <div class="container">
+        {% include 'app/partials/card_main.html' with object=images.main counter=1 %}
+    </div>
+
+    <h3 class="py-5">Другие схожие экспонаты</h3>
+    {% endif %}
+
+    {% for column in images.relative %}
+    
     <div class="col-md-4 col">
       {% for image in column %}
         {% include 'app/partials/card.html' with object=image.1 counter=image.0 %}

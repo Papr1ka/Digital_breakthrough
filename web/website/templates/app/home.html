@@ -4,7 +4,6 @@
 {% load i18n %}
 
 {% block links %}
-<link rel="stylesheet" href="{% static 'css/dragdrop.css' %}">
 {% endblock links %}
 
 
@@ -12,7 +11,7 @@
 <section class="py-5 text-center container">
   <div class="row py-lg-5">
     <div class="col-lg-6 col-md-8 mx-auto">
-      <h1 class="fw-light">Поиск музейных предметов</h1>
+      <h1>Поиск музейных предметов</h1>
       <p class="lead text-body-secondary">Загрузите изображение и найдите похожие предметы!</p>
     </div>
   </div>
@@ -28,7 +27,7 @@
           {% csrf_token %}
           <div class="row g-3">
             <div>
-              <label for="formFileLg" class="form-label">Картинка в формате .png или .jpg</label>
+              <label for="formFileLg" class="form-label">Картинка в любом формате (.png, .jpg)</label>
               {% comment %} <input class="form-control form-control-lg" id="formFileLg" type="file"> {% endcomment %}
               {{ form.image }}
             </div>

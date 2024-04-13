@@ -1,10 +1,12 @@
 <div class="card mb-4 box-shadow">
     <img class="card-img-top" src="{{ object.image }}" alt="Thumbnail [100%x225]" style="display: block;">
+    <h4 style="position: absolute; top: -40px; left: -40px;"><span class="badge text-bg-secondary m-5">{{ counter }}</span></h4>
     <div class="card-body">
-      <h4 class="card-text"><span class="badge text-bg-secondary">Группа: {{ object.group }}</span></h4>
-      <p class="card-text">{{ object.description }}</p>
-      <div class="d-flex justify-content-between align-items-center">
-        <small class="text-muted">Приоритет: {{ counter }}</small>
+        <h4><span class="badge text-bg-secondary">{{ object.group }}</span></h4>
+        <h5 class="card-title">{{ object.name }}</h5>
+        <p class="card-text">{{ object.description }}</p>
+        <div class="d-flex justify-content-between align-items-center">
+        <!-- <small class="text-muted">Приоритет: {{ counter }}</small> -->
       </div>
     </div>
   </div>

@@ -6,5 +6,6 @@ from dataclasses import dataclass
 @dataclass
 class MuseumObject:
     image: str # path
+    name: str
     group: str
     description: str

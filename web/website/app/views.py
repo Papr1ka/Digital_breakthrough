@@ -39,7 +39,10 @@ class HomeView(View):
             images: List[MuseumObject] = predict(None)
             for image in images:
                 image.image = get_image_path(image.image)
-            return render(request, self.template_name, context={"images": [], "form": form, "images": images, "test": split_rows(images)}) 
+            return render(request, self.template_name, context={"images": [], "form": form, "images": {
+                "main": images[0],
+                "relative": split_rows(images[1:], shift=2)
+            }}) 
             
         return render(request, self.template_name, context={"images": [], "form": form})
 
@@ -52,7 +55,10 @@ class HomeView(View):
             images: List[MuseumObject] = predict(image)
             for image in images:
                 image.image = get_image_path(image.image)
-            data.update(images=images)
+            data.update(images={
+                "main": images[0],
+                "relative": split_rows(images[1:], shift=2)
+            })
         else:
             data.update(message="Файл некорректен")
             
