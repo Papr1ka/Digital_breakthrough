@@ -7,12 +7,12 @@
 </div> {% endcomment %}
 <div class="row" id="images">
     {% if images %}
-    <h3 class="py-5">Наиболее похожий экспонат</h3>
+    <h3 class="py-3">Наиболее похожий экспонат</h3>
     <div class="container">
         {% include 'app/partials/card_main.html' with object=images.main counter=1 %}
     </div>
 
-    <h3 class="py-5">Другие схожие экспонаты</h3>
+    <h3 class="py-3">Другие схожие экспонаты</h3>
     {% endif %}
 
     {% for column in images.relative %}

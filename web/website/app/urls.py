@@ -4,6 +4,5 @@ from .views import (
 )
 
 urlpatterns = [
-    #общие страницы
     path('', HomeView.as_view(), name="home"),
 ]

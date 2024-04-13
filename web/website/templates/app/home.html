@@ -39,6 +39,7 @@
           <button class="btn btn-primary btn-lg" type="submit">Найти похожие</button>
         </form>
         {% if predicted %}
+          <h3 class="py-3">Загруженный экспонат</h3>
           {% include 'app/partials/card_predicted.html' with object=predicted %}
         {% endif %}
       </div>

@@ -1,9 +1,8 @@
 from django.db import models
 from dataclasses import dataclass
-from PIL import Image
+from PIL.Image import Image
 
 
-# Create your models here.
 @dataclass
 class MuseumObject:
     image: str # path
