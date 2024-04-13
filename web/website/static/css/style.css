@@ -2,7 +2,7 @@
     margin: 0;
     padding: 0;
 }
-
+/* 
 .center
 {
     display: flex;
@@ -36,4 +36,4 @@
       --bs-btn-focus-border-color: #{rgba($white, .5)};
       --bs-btn-focus-box-shadow: 0 0 0 .25rem rgba(255, 255, 255, .2);
     }
-  }
+  } */

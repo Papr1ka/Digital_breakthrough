@@ -1,10 +1,3 @@
-{% comment %} <div class="row" id="images">
-    {% for image in images %}
-    <div class="col-md-4">
-      {% include 'app/partials/card.html' with object=image counter=forloop.counter %}
-    </div>
-    {% endfor %}
-</div> {% endcomment %}
 <div class="row" id="images">
     {% if images %}
     <h3 class="py-3">Наиболее похожий экспонат</h3>
@@ -16,11 +9,11 @@
     {% endif %}
 
     {% for column in images.relative %}
-    
+
     <div class="col-md-4 col">
-      {% for image in column %}
-        {% include 'app/partials/card.html' with object=image.1 counter=image.0 %}
-      {% endfor %}
+        {% for image in column %}
+            {% include 'app/partials/card.html' with object=image.1 counter=image.0 %}
+        {% endfor %}
     </div>
     {% endfor %}
 </div>

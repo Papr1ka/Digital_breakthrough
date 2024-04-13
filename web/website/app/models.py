@@ -5,7 +5,7 @@ from PIL.Image import Image
 
 @dataclass
 class MuseumObject:
-    image: str # path
+    image: str  #  Относительный путь до изображения в формате {object_id}/img_name
     name: str
     group: str
     description: str

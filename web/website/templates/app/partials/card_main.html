@@ -1,15 +1,18 @@
 <div class="card mb-3">
     <div class="row g-0">
-      <div class="col-md-8">
-        <img src="{{ object.image }}" class="img-fluid rounded-start center mx-auto" style="max-height: 500px" alt="Наиболее похожий экспонат">
-        <h4 style="position: absolute; top: -40px; left: -40px;"><span class="badge text-bg-secondary m-5">{{ counter }}</span></h4>
-    </div>
-      <div class="col-md-4">
-        <div class="card-body">
-            <h4><span class="badge text-bg-secondary">{{ object.group }}</span></h4>
-            <h5 class="card-title">{{ object.name }}</h5>
-            <p class="card-text">{{ object.description }}</p>
+        <div class="col-md-8">
+            <img src="{{ object.image }}" class="img-fluid rounded-start center mx-auto" style="max-height: 500px"
+                alt="Наиболее похожий экспонат">
+            <h4 style="position: absolute; top: -40px; left: -40px;">
+                <span class="badge text-bg-secondary m-5">{{ counter }}</span>
+            </h4>
         </div>
-      </div>
+        <div class="col-md-4">
+            <div class="card-body">
+                <h4><span class="badge text-bg-secondary">{{ object.group }}</span></h4>
+                <h5 class="card-title">{{ object.name }}</h5>
+                <p class="card-text">{{ object.description }}</p>
+            </div>
+        </div>
     </div>
-  </div>
+</div>

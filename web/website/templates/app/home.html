@@ -3,49 +3,43 @@
 {% load static %}
 {% load i18n %}
 
-{% block links %}
-<link rel="stylesheet" href="{% static 'css/carousel.css' %}">
-{% endblock links %}
-
-
 {% block content %}
 <section class="py-5 text-center container">
-  <div class="row py-lg-5">
-    <div class="col-lg-6 col-md-8 mx-auto">
-      <h1>Поиск музейных предметов</h1>
-      <p class="lead text-body-secondary">Загрузите изображение и найдите похожие предметы!</p>
+    <div class="row py-lg-5">
+        <div class="col-lg-6 col-md-8 mx-auto">
+            <h1>Поиск музейных предметов</h1>
+            <p class="lead text-body-secondary">Загрузите изображение и найдите похожие предметы!</p>
+        </div>
     </div>
-  </div>
 </section>
 
 <div class="album py-5">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12 col-lg-12">
-        <h4 class="mb-3">Загрузите фото</h4>
-        <form class="needs-validation" action="{% url 'home' %}"  method="post" enctype="multipart/form-data">
-          {% csrf_token %}
-          <div class="row g-3">
-            <div>
-              <label for="formFileLg" class="form-label">Картинка в любом формате (.png, .jpg)</label>
-              {% comment %} <input class="form-control form-control-lg" id="formFileLg" type="file"> {% endcomment %}
-              {{ form.image }}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-lg-12">
+                <h4 class="mb-3">Загрузите фото экспоната</h4>
+                <form class="needs-validation" action="{% url 'home' %}" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="row g-3">
+                        <div>
+                            <label for="formFileLg" class="form-label">Картинка в любом формате (.png, .jpg)</label>
+                            {{ form.image }}
+                        </div>
+                        {% if message %}
+                        <div class="alert alert-danger" role="alert">
+                            {{ message }}
+                        </div>
+                        {% endif %}
+                        <button class="btn btn-primary btn-lg" type="submit">Найти похожие</button>
+                </form>
+                {% if predicted %}
+                    <h3 class="py-3">Загруженный экспонат</h3>
+                    {% include 'app/partials/card_predicted.html' with object=predicted %}
+                {% endif %}
             </div>
-            {% if message %}
-            <div class="alert alert-danger" role="alert">
-              {{ message }}
-            </div>
-            {% endif %}
-          <button class="btn btn-primary btn-lg" type="submit">Найти похожие</button>
-        </form>
-        {% if predicted %}
-          <h3 class="py-3">Загруженный экспонат</h3>
-          {% include 'app/partials/card_predicted.html' with object=predicted %}
-        {% endif %}
-      </div>
-    </div>
+        </div>
 
-    {% include 'app/partials/images.html' %}
-  </div>
+        {% include 'app/partials/images.html' %}
+    </div>
 </div>
 {% endblock content %}

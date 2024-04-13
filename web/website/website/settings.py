@@ -40,7 +40,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django_htmx',
     'app',
 ]
 
@@ -126,7 +125,7 @@ settings.configure(PATH_TO_DATASET=PATH_TO_DATASET)
 
 
 STATIC_URL = 'static/'
-STATIC_ROOT = path.join(BASE_DIR, 'staticfiles')
+STATIC_ROOT = path.join(BASE_DIR, 'static')
 STATICFILES_DIRS = [
     path.join(BASE_DIR, 'static')
 ]
