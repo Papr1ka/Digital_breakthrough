@@ -5,6 +5,7 @@ from PIL.Image import Image
 
 @dataclass
 class MuseumObject:
+    # os.path.join(str(i[0]), str(i[4])), где i - Series из Датафрейма
     image: str  #  Относительный путь до изображения в формате {object_id}/img_name
     name: str
     group: str

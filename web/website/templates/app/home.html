@@ -25,12 +25,48 @@
                             <label for="formFileLg" class="form-label">Картинка в любом формате (.png, .jpg)</label>
                             {{ form.image }}
                         </div>
-                        {% if message %}
+                        {% if form.image.errors %}
                         <div class="alert alert-danger" role="alert">
-                            {{ message }}
+                            {{ form.image.errors }}
                         </div>
                         {% endif %}
-                        <button class="btn btn-primary btn-lg" type="submit">Найти похожие</button>
+
+                        <div class="container mt-3">
+                            <div class="row">
+                                <div class="col-sm">
+                                    <div class="form-check">
+                                        {{ form.images }}
+                                        <label class="form-check-label" for="flexCheckDefault">
+                                          Найти похожие экспонаты
+                                        </label>
+                                      </div>
+                                </div>
+                                <div class="col-sm">
+                                    <div class="form-check">
+                                        {{ form.group }}
+                                        <label class="form-check-label" for="flexCheckChecked">
+                                            Определить класс экспоната
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-sm">
+                                    <div class="form-check">
+                                        {{ form.description }}
+                                        <label class="form-check-label" for="flexCheckChecked">
+                                            Сгенерировать описание экспоната
+                                        </label>
+                                      </div>
+                                </div>
+                                <div class="col-sm">
+                                    <button class="btn btn-secondary" name="action" value="all" type="submit">Отправить</button>
+                                </div>
+                            </div>
+                            {% if form.non_field_errors %}
+                                <div class="alert alert-danger" role="alert">
+                                    {{ form.non_field_errors }}
+                                </div>
+                            {% endif %}
+                        </div>
                 </form>
                 {% if predicted %}
                     <h3 class="py-3">Загруженный экспонат</h3>
@@ -39,7 +75,9 @@
             </div>
         </div>
 
-        {% include 'app/partials/images.html' %}
+        {% if images %}
+            {% include 'app/partials/images.html' %}
+        {% endif %}
     </div>
 </div>
 {% endblock content %}

@@ -127,7 +127,7 @@ settings.configure(PATH_TO_DATASET=PATH_TO_DATASET)
 STATIC_URL = 'static/'
 STATIC_ROOT = path.join(BASE_DIR, 'static')
 STATICFILES_DIRS = [
-    path.join(BASE_DIR, 'static')
+    path.join(BASE_DIR, 'staticfiles')
 ]
 MEDIA_URL = '/media/'
 MEDIA_ROOT = path.join(PATH_TO_DATASET)

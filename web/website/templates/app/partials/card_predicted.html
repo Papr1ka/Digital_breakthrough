@@ -6,8 +6,12 @@
         </div>
         <div class="col-md-4">
             <div class="card-body">
-                <h4><span class="badge text-bg-secondary">{{ object.group }}</span></h4>
-                <p class="card-text">{{ object.description }}</p>
+                {% if object.group %}
+                    <h4><span class="badge text-bg-secondary">{{ object.group }}</span></h4>
+                {% endif %}
+                {% if object.description %}
+                    <p class="card-text">{{ object.description }}</p>
+                {% endif %}
             </div>
         </div>
     </div>
