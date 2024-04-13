@@ -18,21 +18,26 @@
   </div>
 </section>
 
-<div class="album py-5 bg-light">
+<div class="album py-5">
   <div class="container">
 
     <div class="row">
       <div class="col-md-12 col-lg-12">
         <h4 class="mb-3">Загрузите фото</h4>
-        <form class="needs-validation" action="{% url 'home' %}"  method="post">
+        <form class="needs-validation" action="{% url 'home' %}"  method="post" enctype="multipart/form-data">
           {% csrf_token %}
           <div class="row g-3">
             <div>
               <label for="formFileLg" class="form-label">Картинка в формате .png или .jpg</label>
-              <input class="form-control form-control-lg" id="formFileLg" type="file">
+              {% comment %} <input class="form-control form-control-lg" id="formFileLg" type="file"> {% endcomment %}
+              {{ form.image }}
             </div>
-
-          <button class="btn btn-primary btn-lg" type="submit">Continue to checkout</button>
+            {% if message %}
+            <div class="alert alert-danger" role="alert">
+              {{ message }}
+            </div>
+            {% endif %}
+          <button class="btn btn-primary btn-lg" type="submit">Найти похожие</button>
         </form>
       </div>
     </div>
