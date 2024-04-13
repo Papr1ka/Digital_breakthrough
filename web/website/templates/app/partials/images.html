@@ -1,0 +1,7 @@
+<div class="row" id="images">
+    {% for image in images %}
+    <div class="col-md-4">
+      {% include 'app/partials/card.html' with object=image counter=forloop.counter %}
+    </div>
+    {% endfor %}
+</div>
