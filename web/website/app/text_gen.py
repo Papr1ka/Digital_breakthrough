@@ -11,6 +11,8 @@ feature_extractor = ViTFeatureExtractor.from_pretrained("tuman/vit-rugpt2-image-
 import pandas as pd
 import numpy as np
 from sklearn.model_selection import train_test_split
+
+
 dt = pd.read_csv('train.csv', sep=';', encoding='utf-8')
 path_train = '/home/jupyter/datasphere/project/train'
 dt_non_nan = dt[dt['description'].notna()].reset_index()
