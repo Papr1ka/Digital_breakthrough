@@ -7,7 +7,7 @@ services:
       # - /usr/src/data/train_dataset_mincult-train:/usr/src/data
       # - /usr/src/weights:/usr/src/weights
 
-      - /usr/src/data:/usr/src/data
+      - /usr/src/data/train_dataset_mincult-train:/usr/src/data
       - /usr/src/weights:/usr/src/weights
 
     environment:

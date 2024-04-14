@@ -26,18 +26,18 @@ class MyViTWithMLP(nn.Module):
         output = self.mlp_head(features.last_hidden_state[:, 0])
         return output
 
-WEIGHTS_PATH = os.path.join(settings['PATH_TO_WEIGHTS'], "classifier_final2.pth")
+WEIGHTS_PATH = os.path.join(settings.PATH_TO_WEIGHTS, "classifier_final2.pth")
 
-Vmodel = ViTModel.from_pretrained('google/vit-base-patch16-224-in21k').to(device)
-model = MyViTWithMLP(Vmodel).to(device)
-model.load_state_dict(torch.load(WEIGHTS_PATH))
+# Vmodel = ViTModel.from_pretrained('google/vit-base-patch16-224-in21k').to(device)
+# model = MyViTWithMLP(Vmodel).to(device)
+# model.load_state_dict(torch.load(WEIGHTS_PATH, map_location=torch.device('cpu')))
 
 im_classes = ['Археология', 'Оружие', 'Прочие', 'Нумизматика', 'Фото, негативы',
   'Редкие книги', 'Документы', 'Печатная продукция', 'ДПИ', 'Скульптура',
   'Графика', 'Техника', 'Живопись', 'Естественнонауч.коллекция', 'Минералогия']
 
 
-def predict_image_class(image):
+def predict_image_class(image, model):
     transform = transforms.Compose([
         transforms.Resize((224, 224)),
         transforms.ToTensor(),
@@ -52,3 +52,9 @@ def predict_image_class(image):
     predicted_class_index = torch.argmax(probabilities).item()
 
     return im_classes[predicted_class_index]
+
+
+def getModelClassifier(path: str, vit_name: str) -> MyViTWithMLP:
+    model = ViTModel.from_pretrained(vit_name)
+    model.to(device)
+    return MyViTWithMLP(model, num_classes=15).to(device)

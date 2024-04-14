@@ -10,10 +10,8 @@ from django.conf import settings
 from os import path
 
 
-PATH_TO_DATASET = settings['PATH_TO_DATASET']
-PATH_TO_WEIGHTS = settings['PATH_TO_WEIGHTS']
-
-PATH_TO_WEIGHTS = path.join(PATH_TO_WEIGHTS, "option_data")
+PATH_TO_DATASET = settings.PATH_TO_DATASET
+PATH_TO_WEIGHTS = settings.PATH_TO_WEIGHTS
 
 df = pd.read_csv(path.join(PATH_TO_DATASET, "train.csv"), sep=';') 
 
@@ -43,11 +41,13 @@ pca_matrix = faiss.PCAMatrix(dim, num_components)
 
 
 def find_simmilar_pca(image):
-    index = faiss.read_index("./working.index")
+    index = faiss.read_index(path.join(PATH_TO_WEIGHTS, "working.index"))
     PCA = faiss.read_VectorTransform(path.join(PATH_TO_WEIGHTS, "PCA.pca"))
     query_image_vector = PCA.apply_py(np.array([image])) 
 
     k = 10
     distances, indices = index.search(query_image_vector, k)
-    res = [df.iloc[i] for i in indices][0]
+    indices = indices[0].tolist()
+    res = df.iloc[indices].values
     return res
+
