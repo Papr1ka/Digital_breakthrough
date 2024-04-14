@@ -4,9 +4,6 @@ services:
     ports:
       - "8000:8000"
     volumes:
-      # - /usr/src/data/train_dataset_mincult-train:/usr/src/data
-      # - /usr/src/weights:/usr/src/weights
-
       - /usr/src/data/train_dataset_mincult-train:/usr/src/data
       - /usr/src/weights:/usr/src/weights
 
