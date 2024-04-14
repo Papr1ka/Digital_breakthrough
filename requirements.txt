@@ -1,12 +1,11 @@
 asgiref==3.8.1
 Django==5.0.4
 gunicorn==21.2.0
-numpy==1.26.4
 packaging==24.0
-pandas==2.2.2
 pillow==10.3.0
 python-dateutil==2.9.0.post0
-pytz==2024.1
-six==1.16.0
-sqlparse==0.5.0
-tzdata==2024.1
+transformers==4.39.3
+tqdm==4.66.2
+torchvision==0.17.1
+torch==2.2.1
+pandas

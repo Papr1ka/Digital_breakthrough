@@ -119,10 +119,10 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
-PATH_TO_DATASET = path.abspath("/home/joe/Документы/train_dataset_mincult-train/")
+from os import environ
 
-settings.configure(PATH_TO_DATASET=PATH_TO_DATASET)
-
+PATH_TO_DATASET = environ.get("PATH_TO_DATASET", "")
+PATH_TO_WEIGHTS = environ.get("PATH_TO_WEIGHTS", "")
 
 STATIC_URL = 'static/'
 STATIC_ROOT = path.join(BASE_DIR, 'static')

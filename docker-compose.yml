@@ -1,0 +1,15 @@
+services:
+  web:
+    image: joe4214/dig_break
+    ports:
+      - "8000:8000"
+    volumes:
+      # - /usr/src/data/train_dataset_mincult-train:/usr/src/data
+      # - /usr/src/weights:/usr/src/weights
+
+      - /home/joe/Документы/train_dataset_mincult-train:/usr/src/data
+      - /usr/src/weights:/usr/src/weights
+
+    environment:
+      - PATH_TO_DATASET=/usr/src/data
+      - PATH_TO_WEIGHTS=/usr/src/weights
